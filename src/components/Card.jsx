@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { addItems } from '../redux/reducer/cart.reducer'
+import { addItems, removeitem } from '../redux/reducer/cart.reducer'
 import { changeincart } from '../redux/reducer/products.reducer'
 
 
 function Card({item}) {
     const dispatch = useDispatch()
     const {incart} = useSelector((state) => state.products)
-    const [Addtocartstatus,setAddtocart] = useState(incart[item.id -1])
     function changeAddtoCart(){
-        // Addtocartstatus?dispatch(removeitem(item.id)): 
-        dispatch(addItems(item))
+        incart[item.id -1]?dispatch(removeitem(item)): dispatch(addItems(item))
         dispatch(changeincart(item.id))
-        let newStatus = !Addtocartstatus
-        setAddtocart(newStatus)
     }
     return (
         <div className="col mb-5 z-2 positon-absolute">
@@ -54,7 +50,7 @@ function Card({item}) {
                 {/* Product actions*/}
                 <div className="card-footer p-4 pt-0 border-top-0 bg-transparent"onClick={changeAddtoCart}>
                         {
-                        Addtocartstatus?<div className="text-center "><a className="btn btn-outline-dark mt-auto text-white bg-dark">Remove from cart</a> </div>:
+                        incart[item.id -1]?<div className="text-center "><a className="btn btn-outline-dark mt-auto text-white bg-dark">Remove from cart</a> </div>:
                         <div className="text-center"><a className="btn btn-outline-dark mt-auto" >Add to Cart</a> </div>
                         }
                     </div>
