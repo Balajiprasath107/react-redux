@@ -48,8 +48,8 @@ function About() {
           </div>
         </div>
       </div>
-    </section>  
-    )
+    </section>
+  )
 }
 
 export default About

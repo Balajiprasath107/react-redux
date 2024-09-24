@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import CartCard from './CartCard'
 
 function Cart() {
-    const {cartContains,TotalCartPrice,cartCount} = useSelector((state) => state.cart)
+    const { cartContains, TotalCartPrice, cartCount } = useSelector((state) => state.cart)
     return (
         <>
             {TotalCartPrice ?
@@ -22,7 +22,7 @@ function Cart() {
                         <div className='checkout'>
                             <h5 className='fw-bolder mt-2'>Order Summary</h5>
                             <div className='text-start ps-4 '>
-                            <div className='row mb-1'>
+                                <div className='row mb-1'>
                                     <div className='col fw-bolder'>Total {cartCount > 1 ? 'Items' : 'Item'}</div>
                                     <div className='col'>{cartCount}</div>
                                 </div>

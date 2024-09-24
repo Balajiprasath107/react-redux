@@ -6,8 +6,8 @@ import Header from './Header'
 function Home() {
     return (
         <div>
-            <Header/>
-            <Catalog/>
+            <Header />
+            <Catalog />
         </div>
     )
 }
