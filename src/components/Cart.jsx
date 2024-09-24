@@ -1,19 +1,22 @@
 import React from 'react'
 import './style.css'
-import CartCard from './cartCard'
 import EmptyCart from './EmptyCart'
+import { useSelector } from 'react-redux'
+import CartCard from './CartCard'
+
 function Cart() {
+    const {cartContains,TotalCartPrice,cartCount} = useSelector((state) => state.cart)
     return (
         <>
-            {0 ?
+            {TotalCartPrice ?
                 <div>
                     <h2>Cart</h2>
                     <div className='cartWindow'>
                         <div className='cartCardWindow'>
                             {
-                                // cartContains.map((item) =>
-                                //     <CartCard key={item.id} item={item} />
-                                // )
+                                cartContains.map((item) =>
+                                    <CartCard key={item.id} item={item} />
+                                )
                             }
                         </div>
                         <div className='checkout'>
