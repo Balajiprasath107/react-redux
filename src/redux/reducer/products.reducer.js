@@ -17,10 +17,13 @@ export const productSlice =  createSlice(
             },
             changeincart : (state,action) => {
                 state.incart[action.payload-1] = (!state.incart[action.payload-1])
-            }
+            },
+            changequantity : (state,action) => {
+                state.quantity[action.payload[0]-1] = action.payload[1]
+            }      
         }
     }
 )
-export const {saveLAllProducts,changeincart} = productSlice.actions;
+export const {saveLAllProducts,changeincart,changequantity} = productSlice.actions;
 
 export default productSlice.reducer;
