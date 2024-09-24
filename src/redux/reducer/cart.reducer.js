@@ -18,10 +18,19 @@ export const cartslice = createSlice(
                 state.TotalCartPrice = Math.round((state.TotalCartPrice*100)-((action.payload.price*100)*action.payload.quantity))/100
                 state.cartContains = state.cartContains.filter((item) => item.id !== action.payload.id)
                 state.cartCount-=1
+            },
+            newtotal : (state,action) => {
+                state.TotalCartPrice = action.payload
+            },
+            newcartCount : (state,action) => {
+                state.cartCount = action.payload
+            },
+            cartremove : (state,action) => {
+                state.cartContains = state.cartContains.filter((item) => item.id !== action.payload.id)
             }
         }
     }
 )
-export const {addItems,removeitem} = cartslice.actions
+export const {addItems,removeitem,newtotal,newcartCount,cartremove} = cartslice.actions
 
 export default cartslice.reducer;
