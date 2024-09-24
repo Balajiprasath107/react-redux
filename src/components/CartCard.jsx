@@ -23,7 +23,7 @@ function CartCard({ item }) {
             <div className='cartItemCard'>
                 <img className='cartItemCard-image ' src={item.image} alt="" />
                 <div className='cartItemDetails'>
-                    <h3 style={{height : "65px", overflow:"clip"}}>{item.title}</h3>
+                    <h3>{item.title}</h3>
                     <div className="d-flex small text-warning mb-2">
                             {
                                 [...Array(Math.round(item.rating))].map((ele, index) =>
