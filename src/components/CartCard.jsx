@@ -7,6 +7,7 @@ function CartCard({ item }) {
     const dispatch = useDispatch()
     const { quantity } = useSelector((state) => state.products)
     const { cartCount, TotalCartPrice } = useSelector((state) => state.cart)
+    
     function handleChange(e) {
         let newquantity = Number(e.target.value)
         let newTotalCart = (Math.round((TotalCartPrice * 100) - (item.price * item.quantity * 100) + (item.price * newquantity * 100)) / 100)
